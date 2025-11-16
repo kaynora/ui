@@ -5,6 +5,5 @@ export type {
   TopNavProps,
   SideNavProps,
   ContentProps,
-  SubsectionProps,
   SectionProps,
 } from './Layout'

@@ -1,16 +1,22 @@
 {
   "name": "@kaynora/ui",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
+  "files": ["dist"],
+  "main": "dist/ui.umd.js",
+  "module": "dist/ui.es.js",
+  "types": "dist/types/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "vite",
     "test": "vitest",
-    "build": "tsc -b && vite build",
+    "build": "vite build && tsc --emitDeclarationOnly",
     "lint": "eslint .",
     "preview": "vite preview"
   },
-  "dependencies": {
+  "peerDependencies": {
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },

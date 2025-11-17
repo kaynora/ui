@@ -32,7 +32,7 @@
 
 @font-face {
   font-family: 'IBMPlexSans';
-  src: url('../../../assets/fonts/IBMPlexSans-Variable.ttf');
+  src: url('./assets/fonts/IBMPlexSans-Variable.ttf');
 }
 
 .no-transition * {

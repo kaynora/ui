@@ -1,4 +1,3 @@
-import './ThemeProvider.css'
 import { createContext, useLayoutEffect, useState } from 'react'
 
 type ValidThemes = 'light' | 'dark'

@@ -16,6 +16,7 @@ export default defineConfig({
       fileName: (format) => `ui.${format}.js`,
       formats: ['es', 'umd']
     },
+    cssCodeSplit: true,
     rollupOptions: {
       external: ['react', 'react-dom'],
       output: {

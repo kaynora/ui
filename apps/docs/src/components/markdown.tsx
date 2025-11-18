@@ -5,7 +5,6 @@ import { Typography } from '@kaynora/ui'
 import { NavLink } from './navlink'
 
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 const slugify = (input: string) => {
   return input
@@ -54,7 +53,7 @@ const H2 = ({ children }: { children: string }) => {
         weight='400'
         color='primary'
         internal={{
-          root: { id: slug }
+          root: { id: slug, style: {scrollMarginTop: '70px'} }
         }}
       >
         {children}
@@ -87,7 +86,7 @@ const H3 = ({ children }: { children: string }) => {
         weight='500'
         color='primary'
         internal={{
-          root: { id: slug }
+          root: { id: slug, style: {scrollMarginTop: '70px'} }
         }}
       >
         {children}
@@ -134,7 +133,40 @@ const CodeBlock = ({ children, className }: { children: string; className?: stri
       <SyntaxHighlighter
         className={styles['highlighter']}
         language={language}
-        style={oneDark}
+        style={{
+          'punctuation': { color: 'var(--gray-5)' },
+          'entity': { color: 'var(--gray-5)' },
+          'url': { color: 'var(--gray-5)' },
+
+          'comment': { color: '#999' },
+          'prolog': { color: '#999' },
+          'doctype': { color: '#999' },
+          'cdata': { color: '#999' },
+          'annotation': { color: '#999' },
+          'meta': { color: '#999' },
+
+          'keyword': { color: 'var(--accent)' },
+
+          'number': { color: '#fba8a8ff' },
+
+          'boolean': { color: '#ff9494ff' },
+          'constant': { color: '#ff9494ff' },
+          'symbol': { color: '#ff9494ff' },
+          'attr-name': { color: '#ff9494ff' },
+          'variable': { color: '#ff9494ff' },
+          'property': { color: '#ff9494ff' },
+
+          'class-name': { color: '#998affff' },
+          'function': { color: '#998affff' },
+          'tag': { color: '#998affff' },
+          'operator': { color: '#998affff' },
+
+          'attr-value': { color: '#cfc7ffff' },
+          'string': { color: '#cfc7ffff' },
+          'regex': { color: '#cfc7ffff' },
+          'char': { color: '#cfc7ffff' },
+          'inserted': { color: '#cfc7ffff' },
+        }}
         customStyle={{
           margin: '20px 0',
           backgroundColor: 'var(--background)',
@@ -142,10 +174,11 @@ const CodeBlock = ({ children, className }: { children: string; className?: stri
           borderRadius: 'var(--radius)',
           padding: '15px',
           fontSize: '50%',
+          overflowX: 'auto',
         }}
         codeTagProps={{
           style: {
-            fontFamily: 'IBM Plex Mono',
+            fontFamily: 'IBM Plex Mono, monospace',
           }
         }}
       >
@@ -157,7 +190,7 @@ const CodeBlock = ({ children, className }: { children: string; className?: stri
   return (
     <code style={{
       padding: '0 4px',
-      fontFamily: 'IBM Plex Mono',
+      fontFamily: 'IBM Plex Mono, monospace',
       fontSize: '0.85rem',
       fontWeight: '400',
       color: 'var(--accent)',

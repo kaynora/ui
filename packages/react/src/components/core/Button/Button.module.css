@@ -60,12 +60,18 @@
   text-align: left;
   user-select: auto;
   border: none;
-  text-decoration: underline solid var(--gray-2) 1px;
   padding: 0px !important;
+
+  * {
+    text-decoration: underline solid var(--gray-3) 1px;
+  }
 
   &:hover, &:focus-visible {
     outline: none;
-    text-decoration-color: var(--gray-5);
+
+    * {
+      text-decoration-color: currentColor;
+    }
   }
 
   &.disabled {

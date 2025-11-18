@@ -60,7 +60,7 @@ const Button: React.FC<ButtonProps> = ({
   const activeWidth = width ?? defaultsContext.width ?? 'auto'
 
   return (
-    <TypographyDefaultsProvider color={disabled ? 'disabled' : undefined}>
+    <TypographyDefaultsProvider color={disabled ? 'disabled' : surface === 'text' ? 'accent' : undefined}>
       {(typeof action === 'string') && action.length > 0
 
       ?

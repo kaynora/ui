@@ -27,8 +27,31 @@
 .color-dimmed { color: var(--gray-5) }
 .color-inverted { color: var(--background) }
 .color-disabled { color: var(--gray-4) }
-.color-error { color: var(--error) }
-.color-success { color: var(--success) }
+
+.color-accent {
+  color: var(--accent);
+  text-decoration-color: var(--accent-fade);
+
+  &:hover, &:focus-visible {
+    text-decoration-color: var(--accent) !important;
+  }
+}
+.color-error {
+  color: var(--error);
+  text-decoration-color: var(--error-fade);
+
+  &:hover, &:focus-visible {
+    text-decoration-color: var(--error) !important;
+  }
+}
+.color-success {
+  color: var(--success);
+  text-decoration-color: var(--success-fade);
+
+  &:hover, &:focus-visible {
+    text-decoration-color: var(--success) !important;
+  }
+}
 
 .h-xs { font-size: 1rem }
 .p-xs, .span-xs { font-size: 0.7rem; }

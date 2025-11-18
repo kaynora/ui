@@ -10,6 +10,7 @@ interface TypographyDefaultsContextInterface {
     | 'dimmed'
     | 'inverted'
     | 'disabled'
+    | 'accent'
     | 'success'
     | 'error'
 }

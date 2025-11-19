@@ -40,7 +40,7 @@ const H2 = ({ children }: { children: string }) => {
         root: {
           style: {
             marginBottom: '10px',
-            marginTop: '40px',
+            marginTop: '80px',
             display: 'block',
             width: 'fit-content',
           },
@@ -150,7 +150,7 @@ const CodeBlock = ({ children, className }: { children: string; className?: stri
           'number': { color: '#fba8a8ff' },
 
           'boolean': { color: '#ff9494ff' },
-          'constant': { color: '#ff9494ff' },
+          // 'constant': { color: '#ff9494ff' },
           'symbol': { color: '#ff9494ff' },
           'attr-name': { color: '#ff9494ff' },
           'variable': { color: '#ff9494ff' },

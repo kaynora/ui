@@ -1,0 +1,26 @@
+.table {
+  width: 100%;
+  padding: 15px;
+  border-collapse: collapse;
+
+  th, td {
+    vertical-align: top;
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid var(--gray-1);
+
+    * {
+      padding: 0 !important;
+      margin: 0 !important;
+      border: none !important;
+      border-radius: 0 !important;
+      height: min-content !important;
+    }
+  }
+
+  td {
+    * {
+      font-size: 0.85rem !important;
+    }
+  }
+}

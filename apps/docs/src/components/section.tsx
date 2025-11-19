@@ -13,7 +13,9 @@ const Section = ({ children }: { children: React.ReactElement | React.ReactEleme
       }
     }}>
       <div style={{
-        width: '800px'
+        minWidth: '0',
+        width: '800px',
+        maxWidth: '800px',
       }}>
         {children}
       </div>

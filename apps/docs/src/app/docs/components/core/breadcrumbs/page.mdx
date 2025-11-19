@@ -1,0 +1,77 @@
+import { Section } from '@/components/section'
+import { Reference } from '@/components/reference'
+import { P } from '@/components/paragraph'
+import {
+  BreadcrumbsDisplay,
+  InternalDisplay,
+} from './breadcrumbsDisplay'
+
+<Section>
+
+# Breadcrumbs
+<P>
+A list of links displaying the path to the current page within the site's hierarchy.
+</P>
+<BreadcrumbsDisplay />
+```jsx
+import { Breadcrumbs } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <Breadcrumbs items={[
+      { label: 'Home', action: '#' },
+      { label: 'Components', action: '#' },
+      { label: 'Core', action: '#' },
+      { label: 'Breadcrumbs', action: '#' },
+    ]} />
+  )
+}
+```
+
+## Examples
+
+### Internal
+<P>
+Determines the props to override internal components with.
+</P>
+<InternalDisplay />
+```jsx
+import { Breadcrumbs } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <Breadcrumbs
+      items={[
+        { label: 'Home', action: '#' },
+        { label: 'Movies', action: '#' },
+        { label: 'Mulholland Drive', action: '#' },
+      ]}
+      internal={{
+        typography: { color: 'primary' }
+      } as any}
+    />
+  )
+}
+```
+
+## API Reference
+
+### Root
+```jsx
+<Breadcrumbs />
+```
+
+<Reference rows={[
+  ['items', `{
+    label: string
+    action: string | ((e: MouseEvent) => void)
+  }[]`, `—`],
+  ['internal', `{
+    button: ButtonProps
+    typography: TypographyProps
+    root: HTMLAttributes<HTMLElement> &
+          {ref: Ref<HTMLElement>}
+}`, 'undefined'],
+]} />
+
+</Section>

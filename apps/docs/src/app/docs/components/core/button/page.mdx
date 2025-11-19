@@ -17,9 +17,7 @@ A polymorphic component that can render as a semantic `<button>` or `<a>` elemen
 on the props provided. This design exists to serve as a single source of 
 truth for the appearance of button-like elements.
 </P>
-
 <ButtonDisplay />
-
 ```jsx
 import { Button, T } from '@kaynora/ui'
 
@@ -146,14 +144,16 @@ export default function () {
 ```
 
 <Reference rows={[
-  ['children', `React.ReactElement | React.ReactElement[]`, '—'],
-  ['action', `string | ((e: React.MouseEvent) => void)`, 'undefined'],
+  ['children', `ReactElement | ReactElement[]`, '—'],
+  ['action', `string | ((e: MouseEvent) => void)`, 'undefined'],
   ['surface', `'fill' | 'outline' | 'hollow' | 'text'`, 'undefined'],
   ['size', `'s' | 'm' | 'l'`, 'undefined'],
   ['width', `'auto' | 'full'`, 'undefined'],
   ['disabled', `boolean`, 'false'],
-  ['internal', `root: React.HTMLAttributes<HTMLElement> &
-        {ref: React.Ref<HTMLElement>}`, 'undefined'],
+  ['internal', `{
+    root: HTMLAttributes<HTMLElement> &
+          {ref: Ref<HTMLElement>}
+}`, 'undefined'],
 ]} />
 
 </Section>

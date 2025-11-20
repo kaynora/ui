@@ -1,0 +1,68 @@
+import { Section } from '@/components/section'
+import { Reference } from '@/components/reference'
+import { P } from '@/components/paragraph'
+import {
+  CheckboxDisplay,
+  DisabledDisplay,
+} from './checkboxDisplay'
+
+<Section>
+
+# Checkbox
+<P>
+A boolean input component with checked and unchecked states.
+</P>
+<CheckboxDisplay />
+```jsx
+import { Checkbox } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <Checkbox name='checkbox'>
+      <T>Checkbox</T>
+    </Checkbox>
+  )
+}
+```
+
+## Examples
+
+### Disabled
+<P>
+The `disabled` prop determines whether the checkbox is set to be non-interactive.
+</P>
+<DisabledDisplay />
+```jsx
+import { Checkbox } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <Checkbox name='checkbox' disabled>
+      <T>Checkbox</T>
+    </Checkbox>
+  )
+}
+```
+
+## API Reference
+
+### Root
+```jsx
+<Checkbox />
+```
+
+<Reference rows={[
+  ['children', `ReactElement | ReactElement[]`, `—`],
+  ['name', `string`, `—`],
+  ['value', `boolean`, `undefined`],
+  ['defaultValue', `boolean`, `false`],
+  ['onChange', `(value: boolean) => void`, `undefined`],
+  ['disabled', `boolean`, `false`],
+  ['internal', `{
+    root: HTMLDivElementProps
+    checkbox: HTMLDivElementProps
+    content: HTMLDivElementProps
+}`, 'undefined'],
+]} />
+
+</Section>

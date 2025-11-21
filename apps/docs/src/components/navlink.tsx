@@ -5,6 +5,10 @@ interface NavLinkProps extends ButtonProps {
   display?: 'inline' | 'block'
   action?: never
   href: string
+  internal?: {
+    root?: React.HTMLAttributes<HTMLAnchorElement> & { ref?: React.Ref<HTMLAnchorElement> }
+    button?: ButtonProps
+  }
 }
 
 const NavLink: React.FC<NavLinkProps> = ({
@@ -23,12 +27,11 @@ const NavLink: React.FC<NavLinkProps> = ({
         display,
         width: width === 'auto' ? 'fit-content' : 'auto'
       }}
+      {...internal?.root}
     >
       <Button
         surface={surface}
-        internal={{
-          root: internal?.root
-        }}
+        {...internal?.button}
       >
         {children}
       </Button>

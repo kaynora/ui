@@ -3,18 +3,9 @@
 import styles from './markdown.module.css'
 import { Typography } from '@kaynora/ui'
 import { NavLink } from './navlink'
+import slugify from '@/utils/slugify'
 
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-
-const slugify = (input: string) => {
-  return input
-    .toLowerCase()
-    .trim()
-    .replace(/^\d+\.\s*/, '')
-    .replace(/\s+/g, '-')
-    .replace(/[^\w\-]+/g, '')
-    .replace(/\-+/g, '-')
-}
 
 const H1 = ({ children }: { children: string }) => (
   <Typography
@@ -37,14 +28,14 @@ const H2 = ({ children }: { children: string }) => {
       width='auto'
       href={`#${slug}`}
       internal={{
-        root: {
+        button: { internal: { root: {
           style: {
             marginBottom: '10px',
             marginTop: '80px',
             display: 'block',
             width: 'fit-content',
           },
-        }
+        }}} as any
       }}
     >
       <Typography

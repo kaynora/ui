@@ -10,6 +10,8 @@ import {
 } from '@kaynora/ui'
 
 import { NavLink } from '@/components/navlink'
+import { QuickNav } from '@/components/quicknav'
+import { useRef } from 'react'
 
 const SideBarLink = ({ children, href, pathname }: {
   children: React.ReactNode
@@ -21,9 +23,9 @@ const SideBarLink = ({ children, href, pathname }: {
       surface={pathname === href ? 'fill' : 'hollow'}
       href={href}
       internal={{
-        root: {
+        button: { internal: { root: {
           style: { textAlign: 'left' }
-        }
+        }}} as any
       }}
     >
       <T
@@ -42,6 +44,7 @@ export default function DocsLayout({
   children: React.ReactElement | React.ReactElement[]
 }>) {
   const pn = usePathname()
+  const contentRef = useRef<HTMLDivElement>(null)
 
   return (
     <Layout>
@@ -57,12 +60,14 @@ export default function DocsLayout({
           <SideBarLink pathname={pn} href='/docs/accessibility'>Accessibility</SideBarLink>
 
           <Collapsible
+            defaultOpen={pn.includes('/components')}
             arrangement='leading'
             size='s'
             label='Components'
             internal={{ typography: { size: 's' } as any }} // eslint-disable-line
           >
             <Collapsible
+              defaultOpen={pn.includes('/core')}
               arrangement='leading'
               size='s'
               label='Core'
@@ -94,7 +99,18 @@ export default function DocsLayout({
       </Layout.SideNav>
 
       <Layout.Content>
-        {children}
+        <div style={{
+          display: 'flex',
+          flexFlow: 'row-reverse nowrap',
+          justifyContent: 'end',
+        }}>
+          <QuickNav pathname={pn} />
+          <div style={{
+            overflow: 'hidden',
+          }}>
+            {children}
+          </div>
+        </div>
       </Layout.Content>
     </Layout>
   )

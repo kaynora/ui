@@ -14,7 +14,7 @@ describe('Button', () => {
     beforeEach(() => {
       buttonAction = vi.fn()
       user = userEvent.setup()
-      component = render(<ButtonTest action={buttonAction} />)
+      component = render(<ButtonTest onClick={buttonAction} />)
     })
 
     it('should have no accessibility violations', async () => {
@@ -45,7 +45,7 @@ describe('Button', () => {
     beforeEach(() => {
       buttonAction = vi.fn()
       user = userEvent.setup()
-      component = render(<ButtonTest action={buttonAction} disabled />)
+      component = render(<ButtonTest onClick={buttonAction} disabled />)
     })
 
     it('should have no accessibility violations', async () => {
@@ -73,12 +73,12 @@ describe('Button', () => {
   })
 })
 
-const ButtonTest: React.FC<{action?: string | ((e: React.MouseEvent) => void), disabled?: boolean}> = ({
-  action,
+const ButtonTest: React.FC<{onClick?: ((e: React.MouseEvent) => void), disabled?: boolean}> = ({
+  onClick,
   disabled=false,
 }) => {
   return (
-    <Button action={action} disabled={disabled}>
+    <Button onClick={onClick} disabled={disabled}>
       <Typography>Button content</Typography>
     </Button>
   )

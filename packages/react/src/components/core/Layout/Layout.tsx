@@ -118,7 +118,7 @@ const SideNav: React.FC<SideNavProps> = ({
           <div className={styles['burger']}>
             <Button
               surface='hollow'
-              action={() => setIsCollapsed(!isCollapsed)}
+              onClick={() => setIsCollapsed(!isCollapsed)}
               internal={{
                 root: {
                   'aria-label': isCollapsed ? 'Open sidebar' : 'Close sidebar'

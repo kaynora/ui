@@ -7,10 +7,10 @@ const BreadcrumbsDisplay = () => {
   return (
     <Display>
       <Breadcrumbs items={[
-        { label: 'Home', action: '#' },
-        { label: 'Components', action: '#' },
-        { label: 'Core', action: '#' },
-        { label: 'Breadcrumbs', action: '#' },
+        { label: 'Home', href: '#' },
+        { label: 'Components', href: '#' },
+        { label: 'Core', href: '#' },
+        { label: 'Breadcrumbs', href: '#' },
       ]} />
     </Display>
   )
@@ -21,9 +21,9 @@ const InternalDisplay = () => {
     <Display>
       <Breadcrumbs
         items={[
-          { label: 'Home', action: '#' },
-          { label: 'Movies', action: '#' },
-          { label: 'Mulholland Drive', action: '#' },
+          { label: 'Home', href: '#' },
+          { label: 'Movies', href: '#' },
+          { label: 'Mulholland Drive', href: '#' },
         ]}
         internal={{
           typography: { color: 'primary' }

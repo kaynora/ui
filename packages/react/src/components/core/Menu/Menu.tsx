@@ -8,7 +8,8 @@ interface ItemInterface {
   icon?: React.ReactElement
   label: string
   items?: ItemInterface[]
-  action?: string | ((e: React.MouseEvent) => void)
+  onClick?: ((e: React.MouseEvent) => void)
+  href?: string,
   disabled?: boolean
 }
 
@@ -240,7 +241,8 @@ const Menu: React.FC<MenuProps> = ({
         <Button
           key={`item-${index}`}
           size={size}
-          action={menuItem.action}
+          onClick={menuItem.onClick}
+          href={menuItem.href}
           surface='hollow'
           width='full'
           disabled={menuItem.disabled}

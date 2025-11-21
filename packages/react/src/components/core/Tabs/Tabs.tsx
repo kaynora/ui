@@ -59,7 +59,7 @@ const Tab: React.FC<TabProps> = ({
       {
         createPortal(
           <Button
-            action={() => ctx.currentTab !== value && ctx.setCurrentTab(value)}
+            onClick={() => ctx.currentTab !== value && ctx.setCurrentTab(value)}
             surface='hollow'
             disabled={disabled}
             size={ctx.size}

@@ -172,7 +172,7 @@ const Field: React.FC<FieldProps> = ({
         {
           type === 'password' &&
             <Button
-              action={() => setShowValue(!showValue)}
+              onClick={() => setShowValue(!showValue)}
               surface='hollow'
               internal={{
                 root: {

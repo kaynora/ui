@@ -34,8 +34,8 @@ export default function () {
 
 ### Action
 <P>
-The `action` prop accepts either a `string` representing `href`, or a `function` representing 
-`onClick`. Based on value type, renders a native `<a>` or `<button>` respectively.
+The `href` and `onClick` props determine the action(s) performed by the button. If `href` is defined, 
+a native `<a>` tag is rendered. Otherwise, the `<button>` element is used internally.
 </P>
 <ActionsDisplay />
 ```jsx
@@ -55,8 +55,8 @@ export default function () {
         alignItems: 'center',
         gap: '20px',
       }}>
-        <Button action={() => setIsModalOpen(true)}><T>See notifications</T></Button>
-        <Button action='#'><T>Scroll to top</T></Button>
+        <Button onClick={() => setIsModalOpen(true)}><T>See notifications</T></Button>
+        <Button href='#'><T>Scroll to top</T></Button>
       </div>
     </>
   )
@@ -145,7 +145,8 @@ export default function () {
 
 <Reference rows={[
   ['children', `ReactElement | ReactElement[]`, '—'],
-  ['action', `string | ((e: MouseEvent) => void)`, 'undefined'],
+  ['onClick', `((e: MouseEvent) => void)`, 'undefined'],
+  ['href', `string`, 'undefined'],
   ['surface', `'fill' | 'outline' | 'hollow' | 'text'`, 'undefined'],
   ['size', `'s' | 'm' | 'l'`, 'undefined'],
   ['width', `'auto' | 'full'`, 'undefined'],

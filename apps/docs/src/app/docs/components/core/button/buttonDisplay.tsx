@@ -37,8 +37,8 @@ const ActionsDisplay = () => {
           alignItems: 'center',
           gap: '20px',
         }}>
-          <Button action={() => setIsModalOpen(true)}><T>See notifications</T></Button>
-          <Button action='#'><T>Scroll to top</T></Button>
+          <Button onClick={() => setIsModalOpen(true)}><T>See notifications</T></Button>
+          <Button href='#'><T>Scroll to top</T></Button>
         </div>
       </Display>
     </>

@@ -12,7 +12,7 @@ describe('Menu', () => {
   beforeEach(() => {
     buttonAction = vi.fn()
     user = userEvent.setup()
-    component = render(<MenuTest action={buttonAction} />)
+    component = render(<MenuTest onClick={buttonAction} />)
   })
 
   it('should have no accessibility violations', async () => {
@@ -74,17 +74,17 @@ describe('Menu', () => {
   })
 })
 
-const MenuTest: React.FC<{ action: ((e: React.MouseEvent) => void) }> = ({ action }) => {
+const MenuTest: React.FC<{ onClick: ((e: React.MouseEvent) => void) }> = ({ onClick }) => {
   return (
     <Menu
       items={[
-        { label: 'Item 1', action },
-        { label: 'Item 2', action, disabled: true },
-        { label: 'Item 3', action, disabled: false },
+        { label: 'Item 1', onClick },
+        { label: 'Item 2', onClick, disabled: true },
+        { label: 'Item 3', onClick, disabled: false },
         { label: 'Item 4', items: [
-          { label: 'Item 4.1', action },
-          { label: 'Item 4.2', action },
-          { label: 'Item 4.3', action },
+          { label: 'Item 4.1', onClick },
+          { label: 'Item 4.2', onClick },
+          { label: 'Item 4.3', onClick },
         ]},
       ]}
     />

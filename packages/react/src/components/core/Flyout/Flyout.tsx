@@ -62,7 +62,7 @@ const Flyout: React.FC<FlyoutProps> = ({
       {...internal?.root}
     >
       <Button
-        action={openFlyout}
+        onClick={openFlyout}
         size={size}
         surface='hollow'
         width='full'

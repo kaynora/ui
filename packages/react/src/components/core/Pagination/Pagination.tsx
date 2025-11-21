@@ -65,7 +65,7 @@ const Pagination: React.FC<PaginationProps> = ({
       <Button
         key={`page-${index}`}
         surface={activePage === page ? 'fill' : 'hollow'}
-        action={() => updateCurrentPage(page)}
+        onClick={() => updateCurrentPage(page)}
         internal={{
           root: {
             style: {
@@ -119,7 +119,7 @@ const Pagination: React.FC<PaginationProps> = ({
       <Button
         surface='hollow'
         disabled={activePage === 1}
-        action={() => updateCurrentPage(activePage - 1)}
+        onClick={() => updateCurrentPage(activePage - 1)}
         internal={{
           root: {
             style: {
@@ -148,7 +148,7 @@ const Pagination: React.FC<PaginationProps> = ({
       <Button
         surface='hollow'
         disabled={activePage === count}
-        action={() => updateCurrentPage(activePage + 1)}
+        onClick={() => updateCurrentPage(activePage + 1)}
         internal={{
           root: {
             style: {

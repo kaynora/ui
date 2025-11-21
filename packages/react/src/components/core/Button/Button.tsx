@@ -10,7 +10,8 @@ interface ButtonDefaultsContextInterface {
 
 interface ButtonProps extends ButtonDefaultsContextInterface {
   children: React.ReactElement | React.ReactElement[]
-  action?: string | ((e: React.MouseEvent) => void)
+  onClick?: ((e: React.MouseEvent) => void)
+  href?: string
   disabled?: boolean
   internal?: {
     root?: React.HTMLAttributes<HTMLElement> & { ref?: React.Ref<HTMLElement> }
@@ -47,7 +48,8 @@ const ButtonDefaultsProvider: React.FC<ButtonDefaultsProviderProps> = ({
 
 const Button: React.FC<ButtonProps> = ({
   children,
-  action,
+  onClick,
+  href,
   surface,
   size,
   width,
@@ -61,11 +63,12 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <TypographyDefaultsProvider color={disabled ? 'disabled' : surface === 'text' ? 'accent' : undefined}>
-      {(typeof action === 'string') && action.length > 0
+      {href !== undefined
 
       ?
         <a
-          href={action}
+          href={href}
+          onClick={onClick}
           className={`
             ${styles['button']} 
             ${styles[`surface-${activeSurface}`]} 
@@ -81,7 +84,7 @@ const Button: React.FC<ButtonProps> = ({
       :
         <button
           disabled={disabled}
-          onClick={(e) => !disabled && typeof action === 'function' && action(e)}
+          onClick={onClick}
           className={`
             ${styles['button']} 
             ${styles[`surface-${activeSurface}`]} 

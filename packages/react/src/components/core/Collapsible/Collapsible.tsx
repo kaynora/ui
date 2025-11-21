@@ -43,7 +43,7 @@ const Collapsible: React.FC<CollapsibleProps> = ({
   return (
     <div {...internal?.root}>
       <Button
-        action={() => setIsOpen(!isOpen)}
+        onClick={() => setIsOpen(!isOpen)}
         surface='hollow'
         width='full'
         size={size}

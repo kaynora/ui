@@ -254,7 +254,7 @@ const Calendar: React.FC<CalendarProps> = ({
 
         <div className={styles['chevrons']}>
           <Button
-            action={() => updateDisplayMonth(displayMonth - 1)}
+            onClick={() => updateDisplayMonth(displayMonth - 1)}
             surface='hollow'
             internal={{
               root: {
@@ -275,7 +275,7 @@ const Calendar: React.FC<CalendarProps> = ({
           </Button>
 
           <Button
-            action={() => updateDisplayMonth(displayMonth + 1)}
+            onClick={() => updateDisplayMonth(displayMonth + 1)}
             surface='hollow'
             internal={{
               root: {
@@ -339,7 +339,7 @@ const Calendar: React.FC<CalendarProps> = ({
               >
                 {fillSlot &&
                   <Button
-                    action={() => toggleSelectedDay(dateValue)}
+                    onClick={() => toggleSelectedDay(dateValue)}
                     surface={
                       isDateSelected(dateValue) ? 'fill' :
 

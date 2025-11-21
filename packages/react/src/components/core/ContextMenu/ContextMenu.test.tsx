@@ -17,7 +17,7 @@ describe('ContextMenu', () => {
 
     buttonAction = vi.fn()
     user = userEvent.setup()
-    component = render(<ContextMenuTest action={buttonAction} />)
+    component = render(<ContextMenuTest onClick={buttonAction} />)
   })
 
   it('should have no accessibility violations', async () => {
@@ -81,7 +81,7 @@ describe('ContextMenu', () => {
   })
 })
 
-const ContextMenuTest: React.FC<{ action: (e: React.MouseEvent) => void }> = ({ action }) => {
+const ContextMenuTest: React.FC<{ onClick: (e: React.MouseEvent) => void }> = ({ onClick }) => {
   const targetRef = useRef<HTMLDivElement>(null)
 
   return (
@@ -89,10 +89,10 @@ const ContextMenuTest: React.FC<{ action: (e: React.MouseEvent) => void }> = ({ 
       <ContextMenu
         target={targetRef}
         items={[
-          { label: 'Item 1', action },
-          { label: 'Item 2', action, disabled: true },
-          { label: 'Item 3', action, disabled: false },
-          { label: 'Item 4', action, disabled: false },
+          { label: 'Item 1', onClick },
+          { label: 'Item 2', onClick, disabled: true },
+          { label: 'Item 3', onClick, disabled: false },
+          { label: 'Item 4', onClick, disabled: false },
         ]}
       />
 

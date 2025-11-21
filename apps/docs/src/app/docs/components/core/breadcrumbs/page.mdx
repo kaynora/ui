@@ -19,10 +19,10 @@ import { Breadcrumbs } from '@kaynora/ui'
 export default function () {
   return (
     <Breadcrumbs items={[
-      { label: 'Home', action: '#' },
-      { label: 'Components', action: '#' },
-      { label: 'Core', action: '#' },
-      { label: 'Breadcrumbs', action: '#' },
+      { label: 'Home', href: '#' },
+      { label: 'Components', href: '#' },
+      { label: 'Core', href: '#' },
+      { label: 'Breadcrumbs', href: '#' },
     ]} />
   )
 }
@@ -42,9 +42,9 @@ export default function () {
   return (
     <Breadcrumbs
       items={[
-        { label: 'Home', action: '#' },
-        { label: 'Movies', action: '#' },
-        { label: 'Mulholland Drive', action: '#' },
+        { label: 'Home', href: '#' },
+        { label: 'Movies', href: '#' },
+        { label: 'Mulholland Drive', href: '#' },
       ]}
       internal={{
         typography: { color: 'primary' }
@@ -64,7 +64,7 @@ export default function () {
 <Reference rows={[
   ['items', `{
     label: string
-    action: string | ((e: MouseEvent) => void)
+    href: string
   }[]`, `—`],
   ['internal', `{
     root: HTMLDivElementProps

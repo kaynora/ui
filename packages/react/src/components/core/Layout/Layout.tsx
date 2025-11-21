@@ -14,7 +14,7 @@ interface TopNavProps {
   children: React.ReactElement | React.ReactElement[]
   internal?: {
     root?: React.HTMLAttributes<HTMLDivElement> & { ref?: React.Ref<HTMLDivElement> }
-    content?: React.HTMLAttributes<HTMLDivElement> & { ref?: React.Ref<HTMLDivElement> }
+    content?: React.HTMLAttributes<HTMLElement> & { ref?: React.Ref<HTMLElement> }
   }
 }
 
@@ -23,7 +23,7 @@ interface SideNavProps {
   internal?: {
     root?: React.HTMLAttributes<HTMLDivElement> & { ref?: React.Ref<HTMLDivElement> }
     button?: ButtonProps
-    content?: React.HTMLAttributes<HTMLDivElement> & { ref?: React.Ref<HTMLDivElement> }
+    content?: React.HTMLAttributes<HTMLElement> & { ref?: React.Ref<HTMLElement> }
   }
 }
 
@@ -87,12 +87,12 @@ const TopNav: React.FC<TopNavProps> = ({
       className={styles['topnav']}
       {...internal?.root}
     >
-      <div
+      <nav
         className={styles['topnav-content']}
         {...internal?.content}
       >
         {children}
-      </div>
+      </nav>
     </div>
   )
 }
@@ -131,12 +131,12 @@ const SideNav: React.FC<SideNavProps> = ({
           </div>
         </div>
 
-        <div
+        <nav
           className={styles['sidenav-main']}
           {...internal?.content}
         >
           {children}
-        </div>
+        </nav>
       </div>
     </div>
   )

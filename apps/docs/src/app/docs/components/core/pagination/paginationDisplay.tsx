@@ -21,7 +21,7 @@ const SiblingsDisplay = () => {
         gap: '40px',
       }}>
         <Pagination count={10} siblingCount={1} />
-        <Pagination count={10} siblingCount={2} />
+        <Pagination count={20} siblingCount={2} />
       </div>
     </Display>
   )

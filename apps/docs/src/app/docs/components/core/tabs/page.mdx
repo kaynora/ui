@@ -1,0 +1,132 @@
+import { Section } from '@/components/section'
+import { Reference } from '@/components/reference'
+import { P } from '@/components/paragraph'
+import {
+  TabsDisplay,
+  NavigationDisplay,
+  SizesDisplay,
+} from './tabsDisplay'
+
+<Section>
+
+# Tabs
+<P>
+A tabbed interface component with two keyboard navigation modes: focus-only or select-on-navigation.
+</P>
+<TabsDisplay />
+```jsx
+import { Tabs, T } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <Tabs defaultValue='one'>
+      <Tabs.Tab value='one' label='One'><T>Content one</T></Tabs.Tab>
+      <Tabs.Tab value='two' label='Two'><T>Content two</T></Tabs.Tab>
+    </Tabs>
+  )
+}
+```
+
+## Examples
+
+### Navigation
+<P>
+Setting `navigation` to `'focus'` keeps focus separate from selection, 
+while `'select'` changes the active tab during keyboard navigation.
+</P>
+<NavigationDisplay />
+```jsx
+import { Tabs } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <div style={{
+      display: 'flex',
+      flexFlow: 'column',
+      gap: '40px',
+    }}>
+      <Tabs navigation='focus' defaultValue='a'>
+        <Tabs.Tab value='a' label='A'><T>Focus nav</T></Tabs.Tab>
+        <Tabs.Tab value='b' label='B'><T>Focus nav</T></Tabs.Tab>
+      </Tabs>
+
+      <Tabs navigation='select' defaultValue='a'>
+        <Tabs.Tab value='a' label='A'><T>Select nav</T></Tabs.Tab>
+        <Tabs.Tab value='b' label='B'><T>Select nav</T></Tabs.Tab>
+      </Tabs>
+    </div>
+  )
+}
+```
+
+### Size
+<P>
+The `size` prop determines the amount of padding on the tab control buttons.
+</P>
+<SizesDisplay />
+```jsx
+import { Tabs } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <div style={{
+      display: 'flex',
+      flexFlow: 'column',
+      gap: '40px',
+    }}>
+      <Tabs size='s' defaultValue='one'>
+        <Tabs.Tab value='one' label='One'><T>Small</T></Tabs.Tab>
+        <Tabs.Tab value='two' label='Two'><T>Small</T></Tabs.Tab>
+      </Tabs>
+
+      <Tabs size='m' defaultValue='one'>
+        <Tabs.Tab value='one' label='One'><T>Medium</T></Tabs.Tab>
+        <Tabs.Tab value='two' label='Two'><T>Medium</T></Tabs.Tab>
+      </Tabs>
+
+      <Tabs size='l' defaultValue='one'>
+        <Tabs.Tab value='one' label='One'><T>Large</T></Tabs.Tab>
+        <Tabs.Tab value='two' label='Two'><T>Large</T></Tabs.Tab>
+      </Tabs>
+    </div>
+  )
+}
+```
+
+## API Reference
+
+### Root
+```jsx
+<Tabs />
+```
+
+<Reference rows={[
+  ['children', `ReactElement<Tabs.Tab> | ReactElement<Tabs.Tab>[]`, `—`],
+  ['navigation', `'focus' | 'select'`, `'focus'`],
+  ['size', `'s' | 'm' | 'l'`, `'m'`],
+  ['value', `string`, `undefined`],
+  ['defaultValue', `string`, `''`],
+  ['onChange', `(value: string) => void`, `undefined`],
+  ['internal', `{
+    root: HTMLDivElementProps
+    header: HTMLDivElementProps
+    content: HTMLDivElementProps
+  }`, 'undefined'],
+]} />
+
+### Tab
+```jsx
+<Tabs.Tab />
+```
+
+<Reference rows={[
+  ['label', `string`, `—`],
+  ['value', `string`, `—`],
+  ['disabled', `boolean`, `false`],
+  ['internal', `{
+    root: HTMLDivElementProps
+    typography: TypographyProps
+  }`, 'undefined'],
+]} />
+
+</Section>

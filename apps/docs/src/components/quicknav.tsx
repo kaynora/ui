@@ -11,7 +11,7 @@ const QuickNav = ({ pathname }: {pathname: string}) => {
   useEffect(() => {
     const headings = document.querySelectorAll('h2, h3')
     const fragments = Array.from(headings).filter(el => (
-      el.textContent !== label
+      el.textContent !== label && !el.textContent.includes('Heading')
     )) as HTMLHeadingElement[]
 
     setLinks(fragments)

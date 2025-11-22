@@ -1,0 +1,45 @@
+import { Section } from '@/components/section'
+import { Reference } from '@/components/reference'
+import { P } from '@/components/paragraph'
+import {
+  ThemeProviderDisplay,
+} from './themeProviderDisplay'
+
+<Section>
+
+# Theme Provider
+<P>
+Wrap your application with ThemeProvider to manage the global theme (`'light'` or `'dark'`). 
+Theme changes set the `data-theme` attribute on document root.
+</P>
+<ThemeProviderDisplay />
+```jsx
+import { ThemeProvider, ThemeContext, T } from '@kaynora/ui'
+import { useContext } from 'react'
+
+export default function () {
+  return (
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
+  )
+}
+```
+
+## API Reference
+
+### Root
+```jsx
+<ThemeProvider />
+```
+
+<Reference rows={[
+  ['children', `ReactElement | ReactElement[]`, `—`],
+]} />
+
+### ThemeContext
+<P>
+ThemeContext provides `theme` and `setTheme` via `useContext(ThemeContext)`.
+</P>
+
+</Section>

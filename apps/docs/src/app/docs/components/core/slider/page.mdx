@@ -1,0 +1,108 @@
+import { Section } from '@/components/section'
+import { Reference } from '@/components/reference'
+import { P } from '@/components/paragraph'
+import {
+  SliderDisplay,
+  ControlledDisplay,
+  StepDisplay,
+} from './sliderDisplay'
+
+<Section>
+
+# Slider
+<P>
+A native-feeling range input with fully accessible keyboard support. 
+</P>
+<SliderDisplay />
+```jsx
+import { Slider, T } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <Slider
+      name='volume'
+      minValue={0}
+      maxValue={100}
+      defaultValue={50}
+    >
+      <T>Volume</T>
+    </Slider>
+  )
+}
+```
+
+## Examples
+
+### Controlled
+<P>
+Use `value` and `onChange` to control the slider externally.
+</P>
+<ControlledDisplay />
+```jsx
+import { Slider, T } from '@kaynora/ui'
+import { useState } from 'react'
+
+export default function () {
+  const [v, setV] = useState(50)
+  return (
+    <Slider
+      name='controlled'
+      minValue={0}
+      maxValue={100}
+      value={value}
+      onChange={setValue}
+    >
+      <T>Value: {value}</T>
+    </Slider>
+  )
+}
+```
+
+### Step
+<P>
+The `step` prop determines the level of granularity.
+</P>
+<StepDisplay />
+```jsx
+import { Slider } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <Slider
+      name='step'
+      minValue={0}
+      maxValue={100}
+      step={10}
+      defaultValue={20}
+    >
+      <T>Step 10</T>
+    </Slider>
+  )
+}
+```
+
+## API Reference
+
+### Root
+```jsx
+<Slider />
+```
+
+<Reference rows={[
+  ['children', `ReactElement | ReactElement[]`, `—`],
+  ['name', `string`, `—`],
+  ['minValue', `number`, `—`],
+  ['maxValue', `number`, `—`],
+  ['step', `number`, `1`],
+  ['value', `number`, `undefined`],
+  ['defaultValue', `number`, `minValue`],
+  ['onChange', `(value: number) => void`, `undefined`],
+  ['disabled', `boolean`, `false`],
+  ['internal', `{
+    root: HTMLDivElementProps
+    content: HTMLDivElementProps
+    clickbox: HTMLDivElementProps
+  }`, 'undefined'],
+]} />
+
+</Section>

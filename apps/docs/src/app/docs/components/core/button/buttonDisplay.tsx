@@ -27,7 +27,7 @@ const ActionsDisplay = () => {
     <>
       <Modal
         isOpen={isModalOpen}
-        onOpenChange={() => setIsModalOpen(false)}
+        onOpenChange={setIsModalOpen}
       >
         <div style={{
           padding: '40px',

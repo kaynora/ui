@@ -1,0 +1,69 @@
+import { Section } from '@/components/section'
+import { Reference } from '@/components/reference'
+import { P } from '@/components/paragraph'
+import {
+  TypographyDisplay,
+  SizesDisplay,
+} from './typographyDisplay'
+
+<Section>
+
+# Typography
+<P>
+A component that enforces visual consistency in text content with semi-decoupled 
+semantics and styles. Contextual defaults minimize design overhead.
+</P>
+<TypographyDisplay />
+```jsx
+import { T } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <>
+      <T type='h1'>Heading</T>
+      <T>Paragraph text</T>
+    </>
+  )
+}
+```
+
+## Examples
+
+### Size
+<P>
+The `size` prop determines the font size of the text.
+</P>
+<SizesDisplay />
+```jsx
+import { T } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <T size='s'>Some small text</T>
+  )
+}
+```
+
+## API Reference
+
+### Root
+```jsx
+<Typography />
+```
+
+```jsx
+<T />
+```
+
+<Reference rows={[
+  ['type', `'h1' | 'h2' | 'h3' | 'h4' | 'p' | 'span'`, `—`],
+  ['size', `'xs' | 's' | 'm' | 'l' | 'xl'`, `—`],
+  ['weight', `'300' | '400' | '500'`, `—`],
+  ['color', `'primary' | 'dimmed' | 'inverted' | 'disabled' | 
+  'accent' | 'success' | 'error'`, `—`],
+  ['internal', `{
+    root: HTMLElementProps
+  }`, 'undefined'],
+]} />
+
+</Section>

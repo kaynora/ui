@@ -42,11 +42,13 @@ a native `<a>` tag is rendered. Otherwise, the `<button>` element is used intern
 import { Button, Modal, T } from '@kaynora/ui'
 
 export default function () {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   return (
     <>
       <Modal
         isOpen={isModalOpen}
-        onOpenChange={() => setIsModalOpen(false)}
+        onOpenChange={setIsModalOpen}
       >
         <div style={{
           padding: '40px',

@@ -1,0 +1,155 @@
+import { Section } from '@/components/section'
+import { Reference } from '@/components/reference'
+import { P } from '@/components/paragraph'
+import {
+  SelectDisplay,
+  TypesDisplay,
+  WidthDisplay,
+} from './selectDisplay'
+
+<Section>
+
+# Select
+<P>
+A select component with standard single- and multi-select modes, 
+as well as a search variant that allows for combobox-like behaviour.
+</P>
+<SelectDisplay />
+```jsx
+import { Select } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <Select
+      label='Choose option'
+      name='options'
+      items={[
+        { label: 'Apple', value: 'apple' },
+        { label: 'Banana', value: 'banana' },
+        { label: 'Orange', value: 'orange' },
+      ]}
+    />
+  )
+}
+```
+
+## Examples
+
+### Type
+<P>
+Set the `type` prop to `'single'`, `'multiple'`, or `'search'` 
+to switch selection mode or enable inline search.
+</P>
+<TypesDisplay />
+```jsx
+import { Select } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <div style={{
+      display: 'flex',
+      flexFlow: 'column',
+      gap: '20px',
+    }}>
+      <Select
+        label='Single'
+        name='s'
+        items={[
+          { label: 'A', value: 'a' },
+          { label: 'B', value: 'b' },
+        ]}
+      />
+
+      <Select
+        label='Multiple'
+        name='m'
+        type='multiple'
+        items={[
+          { label: 'A', value: 'a' },
+          { label: 'B', value: 'b' },
+        ]}
+      />
+
+      <Select
+        label='Search'
+        name='q'
+        type='search'
+        items={[
+          { label: 'Apple', value: 'apple' },
+          { label: 'Apricot', value: 'apricot' },
+          { label: 'Banana', value: 'banana' },
+        ]}
+      />
+    </div>
+  )
+}
+```
+
+### Width
+<P>
+The `width` prop controls whether the control sizes to its content or stretches full width.
+</P>
+<WidthDisplay />
+```jsx
+import { Select } from '@kaynora/ui'
+
+export default function () {
+  return (
+    <div style={{
+      display: 'flex',
+      gap: '20px',
+      width: '100%',
+    }}>
+      <Select
+        label='Auto'
+        name='auto'
+        width='auto'
+        items={[
+          { label: 'One', value: '1' },
+          { label: 'Two', value: '2' },
+        ]}
+      />
+
+      <Select
+        label='Full'
+        name='full'
+        width='full'
+        items={[
+          { label: 'One', value: '1' },
+          { label: 'Two', value: '2' },
+        ]}
+      />
+    </div>
+  )
+}
+```
+
+## API Reference
+
+### Root
+```jsx
+<Select />
+```
+
+<Reference rows={[
+  ['label', `string`, `—`],
+  ['name', `string`, `—`],
+  ['items', `{
+    label: string
+    value: string
+    disabled: boolean
+}[] `, `—`],
+  ['type', `'single' | 'multiple' | 'search'`, `'single'`],
+  ['width', `'auto' | 'full'`, `'auto'`],
+  ['value', `string[]`, `undefined`],
+  ['defaultValue', `string[]`, `[]`],
+  ['onChange', `(value: string[]) => void`, `undefined`],
+  ['disabled', `boolean`, `false`],
+  ['internal', `{
+    root: HTMLDivElementProps
+    trigger: HTMLDivElementProps
+    popover: PopoverProps
+  }`, 'undefined'],
+]} />
+
+</Section>

@@ -20,6 +20,9 @@ interface TopNavProps {
 
 interface SideNavProps {
   children: React.ReactElement | React.ReactElement[]
+  defaultOpen?: boolean
+  isOpen?: boolean
+  onOpenChange?: (isOpen: boolean) => void
   internal?: {
     root?: React.HTMLAttributes<HTMLDivElement> & { ref?: React.Ref<HTMLDivElement> }
     button?: ButtonProps
@@ -99,9 +102,18 @@ const TopNav: React.FC<TopNavProps> = ({
 
 const SideNav: React.FC<SideNavProps> = ({
   children,
+  defaultOpen=false,
+  isOpen,
+  onOpenChange,
   internal,
 }) => {
-  const [isCollapsed, setIsCollapsed] = useState(true)
+  const [internalIsOpen, setInternalIsOpen] = useState(defaultOpen)
+  const activeIsOpen = isOpen ?? internalIsOpen
+
+  const updateIsOpen = (value: boolean) => {
+    if (isOpen === undefined) setInternalIsOpen(value)
+    onOpenChange?.(value)
+  }
 
   return (
     <div
@@ -111,22 +123,22 @@ const SideNav: React.FC<SideNavProps> = ({
       <div
         className={`
           ${styles['sidenav-fixed']} 
-          ${isCollapsed && styles['collapsed']}
+          ${!activeIsOpen && styles['collapsed']}
         `}
       >
         <div className={styles['sidenav-header']}>
           <div className={styles['burger']}>
             <Button
               surface='hollow'
-              onClick={() => setIsCollapsed(!isCollapsed)}
+              onClick={() => updateIsOpen(!activeIsOpen)}
               internal={{
                 root: {
-                  'aria-label': isCollapsed ? 'Open sidebar' : 'Close sidebar'
+                  'aria-label': activeIsOpen ? 'Close sidebar' : 'Open sidebar'
                 }
               }}
               {...internal?.button}
             >
-              <Burger state={!isCollapsed} />
+              <Burger state={activeIsOpen} />
             </Button>
           </div>
         </div>

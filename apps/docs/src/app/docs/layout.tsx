@@ -7,11 +7,12 @@ import {
   T,
   Collapsible,
   ButtonDefaultsProvider,
+  Button,
 } from '@kaynora/ui'
 
 import { NavLink } from '@/components/navlink'
 import { QuickNav } from '@/components/quicknav'
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const SideBarLink = ({ children, href, pathname }: {
   children: React.ReactNode
@@ -43,14 +44,49 @@ export default function DocsLayout({
 }: Readonly<{
   children: React.ReactElement | React.ReactElement[]
 }>) {
+  const [isOpen, setIsOpen] = useState(false)
+
   const pn = usePathname()
   const contentRef = useRef<HTMLDivElement>(null)
 
+  useEffect(() => {
+    setIsOpen(false)
+  }, [pn])
+
   return (
     <Layout>
-      <Layout.TopNav><T>TopNav</T></Layout.TopNav>
+      <Layout.TopNav>
+        <div style={{
+          display: 'flex',
+          flexFlow: 'row nowrap',
+          gap: '5px',
+          alignItems: 'center',
+        }}>
+          <Button
+            size='s'
+            href='https://ui.noraste.dev'
+            surface='hollow'
+          >
+            <T weight='500'>@kaynora/ui</T>
+          </Button>
 
-      <Layout.SideNav>
+          <Button
+            size='s'
+            href='https://github.com/kaynora/ui'
+            surface='hollow'
+            internal={{
+              root: {
+                target: '_blank',
+                rel: 'noopener noreferrer',
+              } as any
+            }}
+          >
+            <T weight='300'>Source</T>
+          </Button>
+        </div>
+      </Layout.TopNav>
+
+      <Layout.SideNav isOpen={isOpen} onOpenChange={setIsOpen}>
         <ButtonDefaultsProvider
           size='s'
           width='full'

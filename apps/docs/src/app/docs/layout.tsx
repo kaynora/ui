@@ -42,7 +42,7 @@ const SideBarLink = ({ children, href, pathname }: {
 export default function DocsLayout({
   children,
 }: Readonly<{
-  children: React.ReactElement | React.ReactElement[]
+  children: React.ReactNode
 }>) {
   const [isOpen, setIsOpen] = useState(false)
 

@@ -21,6 +21,7 @@
     }
   },
   "include": [
+    "../../packages/react/src",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",

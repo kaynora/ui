@@ -3,12 +3,13 @@ name: Deploy
 on:
   push:
     branches: [main]
-  pull_request:
 
 jobs:
   cd:
-    name: Deploy
+    name: Deploy prod
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+
     steps:
       - name: SSH and update server
         uses: appleboy/ssh-action@v1

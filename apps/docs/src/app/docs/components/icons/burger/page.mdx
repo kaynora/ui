@@ -18,7 +18,21 @@ import { BurgerDisplay } from './burgerDisplay'
 import { Burger } from '@kaynora/ui'
 
 export default function () {
-  return <Burger />
+  const [state, setState] = useState(false)
+
+  return (
+    <div style={{
+      display: 'flex',
+      flexFlow: 'row nowrap',
+      gap: '16px',
+      alignItems: 'center',
+    }}>
+      <Burger state={state} />
+      <Button onClick={() => setState(!state)} surface='hollow'>
+        <T>Toggle state</T>
+      </Button>
+    </div>
+  )
 }
 ```
 

@@ -16,7 +16,7 @@ const VisibilityDisplay = () => {
         alignItems: 'center',
       }}>
         <Visibility state={state} />
-        <Button onClick={() => setState(!state)}>
+        <Button onClick={() => setState(!state)} surface='hollow'>
           <T>Toggle state</T>
         </Button>
       </div>

@@ -3,11 +3,6 @@ name: Build
 on:
   push:
     branches: [main]
-    paths:
-      - 'packages/react/**'
-  pull_request:
-    paths:
-      - 'packages/react/**'
 
 jobs:
   ci:

@@ -1,11 +1,13 @@
-FROM node:22.12.0-alpine AS builder
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-RUN npm run build
+FROM node:20-slim
 
-FROM nginx:stable-alpine
-COPY --from=builder /app/dist /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+WORKDIR /app
+COPY package.json package-lock.json ./
+COPY apps/docs/package.json ./apps/docs/package.json
+COPY packages/react/package.json ./packages/react/package.json
+RUN npm ci
+COPY . .
+ENV NEXT_TELEMETRY_DISABLED=1
+RUN npm run build --workspace=apps/docs
+
+EXPOSE 3000
+CMD ["npm", "run", "start", "--workspace=apps/docs"]

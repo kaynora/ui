@@ -1,6 +1,6 @@
 # kaynora/ui
 A high-level, pre-styled component library that is designed with full ownership of the UI in mind.
-@kaynora/ui contains 20+ core components with built-in a11y, focus management, and keyboard navigation.
+@kaynora/ui contains 25+ core components with built-in a11y, focus management, and keyboard navigation.
 
 ## Installation
 ```sh

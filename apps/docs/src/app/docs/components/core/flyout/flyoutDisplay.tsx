@@ -7,9 +7,32 @@ import { useState } from 'react'
 const FlyoutDisplay = () => {
   return (
     <Display>
-      <Flyout label='Options'>
-        <Button surface='hollow'><T>Edit</T></Button>
-        <Button surface='hollow'><T>Delete</T></Button>
+      <Flyout label='Products'>
+        <div style={{
+          display: 'flex',
+          flexFlow: 'column',
+          padding: '20px',
+          gap: '20px',
+        }}>
+          <T color='dimmed' weight='500' size='s'>POWERFUL ANALYTICS</T>
+
+          <div style={{
+            display: 'flex',
+            flexFlow: 'row nowrap',
+            gap: '20px',
+          }}>
+            <div>
+              <Button surface='hollow'><T>Dashboard</T></Button>
+              <Button surface='hollow'><T>Analytics</T></Button>
+              <Button surface='hollow'><T>Security & Privacy</T></Button>
+            </div>
+
+            <div>
+              <Button surface='hollow'><T>Data Management</T></Button>
+              <Button surface='hollow'><T>Monitoring</T></Button>
+            </div>
+          </div>
+        </div>
       </Flyout>
     </Display>
   )

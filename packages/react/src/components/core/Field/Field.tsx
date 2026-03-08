@@ -182,9 +182,9 @@ const Field: React.FC<FieldProps> = ({
                     padding: '3px',
                     margin: '0 10px 0 5px',
                   },
-
-                  'aria-label': showValue ? 'Hide password' : 'Show password'
-                }
+                  'aria-label': showValue ? 'Hide password' : 'Show password',
+                  ...internal?.button?.internal?.root,
+                },
               }}
             >
               <Visibility state={showValue} />

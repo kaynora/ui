@@ -3,7 +3,7 @@ import { useEffect, useState, useId } from 'react'
 import { Alert, Visibility } from '../../icons'
 import { Typography, type TypographyProps } from '../Typography'
 import { Message } from '../Message'
-import { Button, ButtonProps } from '../Button'
+import { Button, type ButtonProps } from '../Button'
 
 interface ErrorInterface {
   failState: boolean

@@ -3,7 +3,7 @@ import { useEffect, useState, useId } from 'react'
 import { Alert, Visibility } from '../../icons'
 import { Typography, type TypographyProps } from '../Typography'
 import { Message } from '../Message'
-import { Button } from '../Button'
+import { Button, ButtonProps } from '../Button'
 
 interface ErrorInterface {
   failState: boolean
@@ -35,6 +35,7 @@ interface FieldProps {
     input?: React.HTMLAttributes<HTMLElement> & { ref?: React.Ref<HTMLElement> }
     counter?: React.HTMLAttributes<HTMLDivElement> & { ref?: React.Ref<HTMLDivElement> }
     errors?: React.HTMLAttributes<HTMLDivElement> & { ref?: React.Ref<HTMLDivElement> }
+    button?: ButtonProps
   }
 }
 
@@ -174,6 +175,7 @@ const Field: React.FC<FieldProps> = ({
             <Button
               onClick={() => setShowValue(!showValue)}
               surface='hollow'
+              {...internal?.button}
               internal={{
                 root: {
                   style: {
